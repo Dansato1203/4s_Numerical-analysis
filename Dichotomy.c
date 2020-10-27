@@ -21,9 +21,10 @@ int main(void){
 /*二分法の計算-----------------------------------------------------------------------------*/
 void dichotomy(void){
   int count = 0;
+  int flag = 0;
   double a, b, c;
 
-  while(1){
+  while(flag == 0){
     printf("初期値a,bを入力\n");
     printf("a = ");
     scanf("%lf", &a);
@@ -32,25 +33,26 @@ void dichotomy(void){
 
     if(f(a)*f(b) > 0){
       printf("初期値の設定が悪い\n");
-      break;
+    }else{
+      flag = 1;
+    }
+  }
+
+  while(1){
+    count++;
+    c = (a + b) / 2;
+    if(f(c)*f(a) < 0){
+      b = c;
+    }else{
+      a = c;
     }
 
-    while(1){
-      count++;
-      c = (a + b) / 2;
-      if(f(c)*f(a) < 0){
-        b = c;
-      }else{
-        a = c;
-      }
-
-      if(fabs(a-b)<0.0000000000001){
-        printf("x = %lfで収束\n", c);
-        exit(1);
-        }else if(count == 1000){
-        printf("収束しませんでした\n");
-        exit(1);
-      }
+    if(fabs(a-b)<0.0000000000001){
+      printf("x = %.10lfで収束\n", c);
+      exit(1);
+    }else if(count == 1000){
+      printf("収束しませんでした\n");
+      exit(1);
     }
   }
 }
