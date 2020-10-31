@@ -11,23 +11,31 @@ double d_f(double x){
 }
 
 int main(){
+  FILE *outputfile;
   int  n_max;
   int n = 0;
   double x, eps, del;
 
+  outputfile = fopen("graph.txt", "w");
+  if(outputfile == NULL){
+    printf("cannnot open\n");
+  }
+
   printf("初期値x,小さい数eps,最大繰り返し回数n_maxを入力\n");
   printf("x = ");
   scanf("%lf", &x);
+  fprintf(outputfile,"%lf",x);
   printf("eps = ");
   scanf("%lf", &eps);
   printf("n_max = ");
   scanf("%d", &n_max);
-
+  
   do {
     del = -f(x) / d_f(x);
     x = x + del;
     n++;
     printf("[round: %d], x = %.10lf\n", n, x);
+    fprintf(outputfile, "%.10lf %.10lf\n", x, f(x));
   }while(fabs(del) > eps && n <= n_max);
 
   if(n == n_max){
