@@ -24,7 +24,7 @@ int main(){
   printf("初期値x,小さい数eps,最大繰り返し回数n_maxを入力\n");
   printf("x = ");
   scanf("%lf", &x);
-  fprintf(outputfile,"%lf",x);
+  fprintf(outputfile,"%.10lf %.10lf\n", x, f(x));
   printf("eps = ");
   scanf("%lf", &eps);
   printf("n_max = ");
