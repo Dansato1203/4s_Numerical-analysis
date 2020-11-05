@@ -24,7 +24,7 @@ int main(){
   printf("初期値x,小さい数eps,最大繰り返し回数n_maxを入力\n");
   printf("x = ");
   scanf("%lf", &x);
-  fprintf(outputfile,"%.10lf %.10lf\n", x, f(x));
+  fprintf(outputfile,"%.10lf 0\n", x);
   printf("eps = ");
   scanf("%lf", &eps);
   printf("n_max = ");
@@ -35,7 +35,7 @@ int main(){
     x = x + del;
     n++;
     printf("[round: %d], x = %.10lf\n", n, x);
-    fprintf(outputfile, "%.10lf %.10lf\n", x, f(x));
+    fprintf(outputfile, "%.10lf 0\n", x);
   }while(fabs(del) > eps && n <= n_max);
 
   if(n == n_max){
