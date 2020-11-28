@@ -2,7 +2,7 @@
 #include <math.h>
 
 double f(double x){
-  return x*x*x + 3*x*x + x + 1;
+  return 1 / x;
 }
 
 double simpson(double a, double b, int n){
