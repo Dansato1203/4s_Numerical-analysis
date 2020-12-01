@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <time.h>
 
 int main(){
 
@@ -11,7 +11,7 @@ int main(){
   char random_text[81] = {"random.txt"};
   char str;
 
-  srand(10);
+  srand((unsigned int)time(NULL));
 
   rp = fopen(output_text, "r");
   wp = fopen(random_text, "w");
@@ -33,7 +33,7 @@ int main(){
   
   printf("Total number of characters: %d\n", num);
   printf("-- 1st approximation -- \n");
-  for(i = 0;i < 100;i++){
+  for(i = 0;i < 101;i++){
     rewind(rp);
     k = rand() % num + 1;
     while((str = fgetc(rp)) != EOF){

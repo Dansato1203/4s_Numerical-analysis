@@ -32,8 +32,6 @@ int main(){
     }else if(str == 0x0A){
       putchar(str);
       count++;
-    }else if(count == 10){
-      break;
     }else{
       str = 0x20;
       putchar(str);

@@ -7,7 +7,7 @@ int main(){
   char str;
   char low[27], up[27];
   char a = 0x61, A = 0x41;
-  char output_text[81] = {"output.txt"};
+  char output_text[81] = {"random.txt"};
 
   fp = fopen(output_text, "r");
 
